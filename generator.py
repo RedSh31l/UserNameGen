@@ -2,6 +2,7 @@
 import argparse
 import sys
 
+
 def generator(name:str, lower=False) -> str:
     """
     takes a name (firstname lastname) 
@@ -29,7 +30,7 @@ def generator(name:str, lower=False) -> str:
 def main():
 
     parser = argparse.ArgumentParser(prog='namegenerator', 
-                                     usage="%(prog)s [options]")
+                                     usage="%(prog)s [-i input -o output [options]]")
     
     parser.add_argument("-o","--output",
                         help="output file",
@@ -49,7 +50,8 @@ def main():
     
     args = parser.parse_args()
 
-    if args.help:
+
+    if len(sys.argv) == 1:
         parser.print_help()
         sys.exit(0)
 
