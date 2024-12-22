@@ -13,4 +13,4 @@ dependencies = [
 ]
 
 [project.scripts]
-cli-name = "UserNameGen.generator:main"
+namegen = "generator:main"
