@@ -7,7 +7,8 @@ def generator(name:str, lower=False) -> str:
     """
     takes a name (firstname lastname) 
     and does common name conventions on it. 
-    returns a list of abrivations
+    Returns a list of abrivations.
+    Used for generating windows AD common usernames 
     """
     result = ""
 
@@ -16,16 +17,38 @@ def generator(name:str, lower=False) -> str:
     name = name.strip()
     data = name.split(' ')
 
+    try:
     #3 first chars of firstname, 3 lastname
-    result+=data[0][:3]+data[1][:3]+"\n"
-    
-    #1 first char . lastname
-    result+=data[0][0]+'.'+data[1]+"\n"
+        result+=data[0][:3]+data[1][:3]+"\n"
+    except IndexError:
+        pass
 
-    #2 first char + lastname d
-    result+= data[0][:2]+data[1]+"\n"
+    # 3 first char of 
+    try:
+        result+=data[0][:3]+'.'+data[1][:3]
+    except IndexError:
+        pass
+    
+    #1 first char [dot] lastname
+    try:
+        result+=data[0][0]+'.'+data[1]+"\'n"
+    except IndexError:
+        pass
+
+    #2 first char + lastname 
+    try:
+        result+= data[0][:2]+data[1]+"\n"
+    except IndexError:
+        pass
 
     return result
+
+def generate_names() -> Bool:
+    with open(args.output,"w") as out_file:
+        with open(args.input, "r") as in_file:
+            for name in in_file:
+                n.write(generator(name, args.lowercase))
+
 
 def main():
 
@@ -51,15 +74,14 @@ def main():
     args = parser.parse_args()
 
 
-    if len(sys.argv) == 1:
+    if len(sys.argv) < 3:
         parser.print_help()
         sys.exit(0)
+    
+    else:
+        generate_names()
 
-    with open(args.output,"w") as n:
-        with open(args.input, "r") as f:
-            for name in f:
-                n.write(generator(name, args.lowercase))
-
+    
 
 if __name__ == "__main__":
     main()

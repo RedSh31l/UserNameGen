@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools-scm", "setuptools]
+build-backend = "setuptools.build_meta"
+
+[project]
+name= "ADnameGen" 
+version= "1.0"
+readme = "README.md" 
+Authors = [{name:"Daniel W}]
+license = [{text: MIT license   }]
+
+
+dependencies = [
+    "argparse",
+]
+
