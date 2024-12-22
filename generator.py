@@ -52,7 +52,7 @@ def generate_names(args):
 
 def main():
 
-    parser = argparse.ArgumentParser(prog='namegenerator', 
+    parser = argparse.ArgumentParser(prog='namegen', 
                                      usage="%(prog)s [-i input -o output [options]]")
     
     parser.add_argument("-o","--output",
