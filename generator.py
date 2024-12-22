@@ -19,35 +19,35 @@ def generator(name:str, lower=False) -> str:
 
     try:
     #3 first chars of firstname, 3 lastname
-        result+=data[0][:3]+data[1][:3]+"\n"
+        result+=data[0][:3]+data[1][:3]+'\n'
     except IndexError:
         pass
 
     # 3 first char of 
     try:
-        result+=data[0][:3]+'.'+data[1][:3]
+        result+=data[0][:3]+'.'+data[1][:3]+'\n'
     except IndexError:
         pass
     
     #1 first char [dot] lastname
     try:
-        result+=data[0][0]+'.'+data[1]+"\'n"
+        result+=data[0][0]+'.'+data[1]+'\n'
     except IndexError:
         pass
 
     #2 first char + lastname 
     try:
-        result+= data[0][:2]+data[1]+"\n"
+        result+= data[0][:2]+data[1]+'\n'
     except IndexError:
         pass
 
     return result
 
-def generate_names() -> Bool:
+def generate_names(args):
     with open(args.output,"w") as out_file:
         with open(args.input, "r") as in_file:
             for name in in_file:
-                n.write(generator(name, args.lowercase))
+                out_file.write(generator(name, args.lowercase))
 
 
 def main():
@@ -79,7 +79,7 @@ def main():
         sys.exit(0)
     
     else:
-        generate_names()
+        generate_names(args)
 
     
 

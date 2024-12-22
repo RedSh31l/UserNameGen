@@ -1,0 +1,12 @@
+testes
+tes.tes
+t.test
+tetest
+aaabbb
+aaa.bbb
+a.bbbb
+aabbbb
+cccddd
+ccc.ddd
+c.dddd
+ccdddd
