@@ -1,16 +1,16 @@
 [build-system]
-requires = ["setuptools-scm", "setuptools]
+requires = ["setuptools-scm", "setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name= "ADnameGen" 
 version= "1.0"
 readme = "README.md" 
-Authors = [{name:"Daniel W}]
-license = [{text: MIT license   }]
-
-
+authors = [{name = "Daniel W"}]
+license = {text = ["MIT"], file = "" }
 dependencies = [
-    "argparse",
+    "argparse"
 ]
 
+[project.scripts]
+cli-name = "UserNameGen.generator:main"
